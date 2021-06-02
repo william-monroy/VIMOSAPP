@@ -44,22 +44,24 @@ bool Usuario::operator+=(int id1)
     bool resultado = false;
     if (this->contadorVideos == 20)
     {
-        return false;
+        resultado = false;
     }
     else
     {
         for (int i = 0; i < this->contadorVideos; i++)
         {
             if (this->misVideos[i] == id1){
-                return false;
+                resultado = false;
+                break;
             }
             else if (i == this->contadorVideos - 1){
                 this->misVideos[this->contadorVideos] = id1;
                 this->contadorVideos++;
-                return true;
+                resultado = true;
             }
         }
     }
+    return resultado;
 }
 
 #endif // !Usuario_h
