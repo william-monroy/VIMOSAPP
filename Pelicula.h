@@ -8,8 +8,7 @@ class Pelicula : public Video
 private:
 public:
     Pelicula();
-    //Pelicula(int idVideo, string titulo, string genero, int duracion, int calificacion);
-    Pelicula(int, string, string, int, int);
+    Pelicula(int idVideo, string titulo, string genero, int duracion, int calificacion);
     void muestra();
 };
 
@@ -23,7 +22,8 @@ Pelicula::Pelicula(int idVideo, string titulo, string genero, int duracion, int 
 
 void Pelicula::muestra()
 {
-    cout << "Muestra";
+    cout << "PELICULA" << endl;
+    Video::muestra();
 }
 
 #endif // !Pelicula_h

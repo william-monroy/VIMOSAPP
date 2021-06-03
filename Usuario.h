@@ -33,7 +33,7 @@ int Usuario::getUnIdMisVideos(int id)
     {
         return this->misVideos[id];
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
         return -1;
     }
@@ -50,11 +50,13 @@ bool Usuario::operator+=(int id1)
     {
         for (int i = 0; i < this->contadorVideos; i++)
         {
-            if (this->misVideos[i] == id1){
+            if (this->misVideos[i] == id1)
+            {
                 resultado = false;
                 break;
             }
-            else if (i == this->contadorVideos - 1){
+            else if (i == this->contadorVideos - 1)
+            {
                 this->misVideos[this->contadorVideos] = id1;
                 this->contadorVideos++;
                 resultado = true;

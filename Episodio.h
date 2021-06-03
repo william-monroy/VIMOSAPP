@@ -29,15 +29,20 @@ Episodio::Episodio() : Video()
     this->numTemporada = 0;
 }
 
-Episodio::Episodio(int idVideo, string titulo, string genero, int duracion, int calificacion, string serie, int numeroEp, int numTemporada) : Video(idVideo,titulo,genero,duracion,calificacion)
+Episodio::Episodio(int idVideo, string titulo, string genero, int duracion, int calificacion, string serie, int numeroEp, int numTemporada) : Video(idVideo, titulo, genero, duracion, calificacion)
 {
     this->serie = serie;
     this->numeroEp = numeroEp;
     this->numTemporada = numTemporada;
 }
 
-void Episodio::muestra(){
-    
+void Episodio::muestra()
+{
+    cout << "EPISODIO" << endl;
+    Video::muestra();
+    cout << "              Serie: " << this->serie << endl;
+    cout << " Numero de episodio: " << this->numeroEp << endl;
+    cout << "Numero de temporada: " << this->numTemporada << endl;
 }
 
 #endif // !Episodio_h
