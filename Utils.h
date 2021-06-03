@@ -39,3 +39,17 @@ void pause(string SO)
         cin >> temp;
     }
 }
+
+string upper(string cadena)
+{
+    for (int i = 0; i < cadena.length(); i++)
+        cadena[i] = toupper(cadena[i]);
+    return cadena;
+}
+
+string lower(string cadena)
+{
+    for (int i = 0; i < cadena.length(); i++)
+        cadena[i] = tolower(cadena[i]);
+    return cadena;
+}
