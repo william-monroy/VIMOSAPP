@@ -24,6 +24,8 @@ Usuario::Usuario()
 {
     this->cuenta = "";
     this->nombre = "";
+    for (int i = 0; i <20; i++)
+        misVideos[i] = 0;
     this->contadorVideos = 0;
 }
 
@@ -48,15 +50,15 @@ bool Usuario::operator+=(int id1)
     }
     else
     {
-        for (int i = 0; i < this->contadorVideos; i++)
+        for (int i = 0; i < 20; i++)
         {
             if (this->misVideos[i] == id1)
             {
                 resultado = false;
                 break;
             }
-            else if (i == this->contadorVideos - 1)
-            {
+            else if (i == 19)
+            {                
                 this->misVideos[this->contadorVideos] = id1;
                 this->contadorVideos++;
                 resultado = true;

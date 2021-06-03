@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void vimosapp()
+void vimosapp() 
 {
     cout << " _   ________  _______  _______   ___  ___ "<< endl;
     cout << "| | / /  _/  |/  / __ \\/ __/ _ | / _ \\/ _ \\" << endl;
@@ -34,7 +34,7 @@ void pause(string SO)
     }
     else
     {
-        cout << "Presione enter para continuar...";
+        cout << "Presione una tecla y enter para continuar...";
         string temp;
         cin >> temp;
     }

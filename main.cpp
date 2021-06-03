@@ -19,7 +19,10 @@ int main()
 {
 
     Video *videos[50];
+    int cantVideos = 0;
     Usuario usuario;
+    usuario.setCuenta("Personal");
+    usuario.setNombre("William Frank Monroy Mamani");
     string nomArchivo;
     cin >> nomArchivo;
 
@@ -28,8 +31,8 @@ int main()
     char tipoVideo;
     int idVideo, duracion, calificacion, numeroEp, numTemporada;
     string titulo, serie, genero;
-    int cantVideos = 0;
-    archivo.open(nomArchivo);
+    //archivo.open(nomArchivo);
+    archivo.open("archivoVideos.txt");
     while (archivo >> tipoVideo)
     {
         if (tipoVideo == 'p')
@@ -46,6 +49,7 @@ int main()
         }
     }
     archivo.close();
+
     string SO = "";
 
 #if defined(_WIN64)
@@ -107,12 +111,13 @@ int main()
             for (int i = 0; i < cantVideos; i++)
             {
                 if (videos[i]->getCalificacion() == calificacion)
-                { 
+                {
                     cout << "" << endl;
                     videos[i]->muestra();
                     cout << "" << endl;
                 }
             }
+            pause(SO);
             break;
         }
         case 3:
@@ -121,9 +126,18 @@ int main()
             /*• Consultar la lista de Videos por género, debe preguntar al usuario el género y mostrar los
                 datos de todos los videos que sean de ese género. El género debe ser un string de una sola
                 palabra.*/
-            
+            string genero;
             cout << "Genero: ";
-
+            for (int i = 0; i < cantVideos; i++)
+            {
+                if (videos[i]->getGenero() == genero)
+                {
+                    cout << "" << endl;
+                    videos[i]->muestra();
+                    cout << "" << endl;
+                }
+            }
+            pause(SO);
             break;
         }
         case 4:
@@ -131,14 +145,21 @@ int main()
             clear(SO);
             /*• Ver datos del usuario, esta opción debe mostrar el nombre y cuenta del usuario, así como la
                 lista con todos los datos de cada uno de los videos que pertenecen a la lista del usuario.*/
-
+            cout << "Cuenta: " << usuario.getCuenta() << endl;
+            cout << "Nombre: " << usuario.getNombre() << endl;
+            cout << "Lista de Videos:" << endl;
+            for (int i = 0; i < usuario.getContadorVideos(); i++)
+            {
+                cout << usuario.getUnIdMisVideos(i) << endl;
+            }
+            pause(SO);
             break;
         }
         case 5:
         {
             /*• Modificar el perfil del usuario, debe pedir que se teclee el nombre y la cuenta del usuario y
                 modificarlos en el objeto correspondiente.*/
-
+            
             break;
         }
         case 6:
@@ -151,6 +172,46 @@ int main()
                 a pedir el dato tantas veces como el usuario lo teclee equivocado; o bien si se teclea el valor 0
                 se debe salir de la opción y volver al menú.*/
 
+            int idNuevo;
+            cout << "ID a agregar: ";
+            cin >> idNuevo;
+            if (idNuevo == 0)
+                break;
+            bool encontrado = false;
+            for (int i = 0; i < cantVideos; i++)
+            {
+                if (videos[i]->getIdVideo() == idNuevo)
+                {
+                    encontrado = true;
+                    break;
+                }
+            }
+            while (encontrado == false)
+            {
+                cout << "ID a agregar: ";
+                cin >> idNuevo;
+                if (idNuevo == 0)
+                    break;
+                for (int i = 0; i < cantVideos; i++)
+                {
+                    if (videos[i]->getIdVideo() == idNuevo)
+                    {
+                        encontrado = true;
+                        break;
+                    }
+                }
+            }
+            if (encontrado == true)
+            {
+                if ((usuario += idNuevo) == false)
+                {
+                    cout << "Error: No se ha podido agregar" << endl;
+                }
+                else{
+                    cout << "Video agregado con exito :)" << endl;
+                }
+            }
+            pause(SO);
             break;
         }
         case 7:

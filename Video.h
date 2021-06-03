@@ -46,11 +46,11 @@ Video::Video(int idVideo, string titulo, string genero, int duracion, int califi
 
 void Video::muestra()
 {
-    cout << "                  ID: " << this->idVideo << endl;
-    cout << "              Titulo: " << this->titulo << endl;
-    cout << "              Genero: " << this->genero << endl;
-    cout << "            Duracion: " << this->duracion << endl;
-    cout << "        Calificacion: " << this->calificacion << endl;
+    cout << "                 ID: " << this->idVideo << endl;
+    cout << "             Titulo: " << this->titulo << endl;
+    cout << "             Genero: " << this->genero << endl;
+    cout << "           Duracion: " << this->duracion << endl;
+    cout << "       Calificacion: " << this->calificacion << endl;
 }
 
 #endif // !Video_h
